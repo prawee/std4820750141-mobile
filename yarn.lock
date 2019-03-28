@@ -5988,6 +5988,11 @@ watch@~0.18.0:
     exec-sh "^0.2.0"
     minimist "^1.2.0"
 
+watchman@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/watchman/-/watchman-1.0.0.tgz#a800f815957952ed9229c54610fb4a26897d2c21"
+  integrity sha512-f7sP6DSVQzNUAXIBctvYyJyq6/j/FtWoEn6yh/Ot/E14a3am7JMH0tygWt6iE+T+DT+BNOUAT3hM/gZ7W9Ycmw==
+
 webidl-conversions@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
