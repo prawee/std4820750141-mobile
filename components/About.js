@@ -1,10 +1,13 @@
 // import libray
 import React, { Component } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, Button } from 'react-native';
 import axios from 'axios';
 
 // write component 
 class About extends Component {
+    static navigationOptions = {
+        title: 'Profile'
+    }
     constructor() {
         super();
         this.state ={
@@ -44,7 +47,14 @@ class About extends Component {
         return (
             <View>
                 <Text style={styles.text}>Name: {this.state.name}</Text>
-                <Text style={styles.text}>Email: {this.state.email}</Text>
+                <Text style={styles.lastText}>Email: {this.state.email}</Text>
+                
+                <Button 
+                    title="Back"
+                    onPress={() =>
+                        this.props.navigation.push('Login')}
+                />
+                
             </View>
         );
     }
@@ -53,6 +63,10 @@ class About extends Component {
 const styles = {
     text: {
         fontSize: 30
+    },
+    lastText: {
+        fontSize: 30,
+        marginBottom: 20
     }
 }
 
