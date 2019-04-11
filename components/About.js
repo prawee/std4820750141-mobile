@@ -37,7 +37,7 @@ class About extends Component {
 
     render() {
         if (this.state.name == '') {
-            <View>
+            return <View>
                 <ActivityIndicator size="large" color="#0000ff" />
             </View>
         }
