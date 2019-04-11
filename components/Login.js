@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import axios from 'axios';
+import AsyncStorage from '@react-native-community/async-storage';
 
 // write component
 class Login extends Component {
@@ -27,12 +28,13 @@ class Login extends Component {
     onChangePassword(e) {
         this.setState({ password: e})
     }
-    onPress() {
+    async onPress() {
         console.log(this.state)
         const url = 'http://128.199.240.120:9999/api/auth/login'
         axios.post(url, this.state)
-            .then(response => {
+            .then(async response => {
                 console.log('token ', response.data.data.token)
+                await AsyncStorage.setItem('@storage_Token', response.data.data.token)
             })
     }
     render() {
