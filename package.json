@@ -10,6 +10,8 @@
     "axios": "^0.18.0",
     "react": "16.8.3",
     "react-native": "0.59.0",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-navigation": "^3.7.1",
     "watchman": "^1.0.0"
   },
   "devDependencies": {
