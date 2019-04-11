@@ -17,9 +17,12 @@ class Login extends Component {
         }
         // this.onChangeEmail = this.onChangeEmail.bind(this)
     }
-    componentDidMount() {
-        const {navigate} = this.props.navigation;
-        return navigate('Profile')
+    async componentDidMount() {
+        const {navigate} = this.props.navigation;   
+        const token = await AsyncStorage.getItem('@storage_Token')
+        if (token) {
+            return navigate('Profile')
+        }
     }
     onChangeEmail(e) {
         console.log('onChangeEmail', e)
@@ -29,17 +32,20 @@ class Login extends Component {
         this.setState({ password: e})
     }
     async onPress() {
-        console.log(this.state)
+        // console.log(this.state)
         const url = 'http://128.199.240.120:9999/api/auth/login'
-        axios.post(url, this.state)
+        await axios.post(url, this.state)
             .then(async response => {
-                console.log('token ', response.data.data.token)
+                // console.log('token ', response.data.data.token)
                 await AsyncStorage.setItem('@storage_Token', response.data.data.token)
             })
+
+        
+        // console.log('token', token)
     }
     render() {
-        const {navigate} = this.props.navigation;
-        return navigate('Profile')
+        // const {navigate} = this.props.navigation;
+        // return navigate('Profile')
         return (
             <View>
                 <TextInput
